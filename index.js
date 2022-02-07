@@ -37,7 +37,15 @@ async function run() {
             const orders = await cursor.toArray();
             res.send(orders)
         })
-        // get orders all product
+        // Delete orders inside the products
+        app.delete('/orders:id', async (req, res) => {
+            const id = req.params.id;
+            const query = { _id: ObjectId(id) };
+            const result = await bookingCollection.deleteOne(query);
+            res.json(result)
+        })
+
+        // get Users all product
         app.get('/users', async (req, res) => {
             const cursor = usersCollection.find({});
             const users = await cursor.toArray();

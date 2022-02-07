@@ -1,3 +1,4 @@
 _cacache
 _logs
 -node_modules
+.env
