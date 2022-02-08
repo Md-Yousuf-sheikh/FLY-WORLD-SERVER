@@ -51,7 +51,7 @@ async function run() {
             const users = await cursor.toArray();
             res.send(users)
         })
-        // post new product inside the products
+        // post new product inside the products 
         app.post('/products', async (req, res) => {
             const newPost = req.body;
             const result = await productsCollection.insertOne(newPost);
